@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact LPD&M Cleaning Solutions in Enfield, London. Call +44 7495 687854, WhatsApp us for an instant quote, or send a message. We respond within 2 hours, Mon–Sun 8AM–8PM.">
+    <meta name="keywords" content="contact LPD&M cleaning, cleaning quote Enfield, book cleaner London, cleaning services contact, Enfield cleaning company">
+    <title>Contact Us | LPD&M Cleaning Solutions — Enfield &amp; North London</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="./images/logo.jpeg">
+
+    <!-- Preconnect for faster CDN loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Us | LPD&M Cleaning Solutions — Enfield &amp; North London">
+    <meta property="og:description" content="Contact LPD&M Cleaning Solutions in Enfield, London. Call +44 7495 687854 or WhatsApp for an instant quote. We respond within 2 hours, Mon–Sun 8AM–8PM.">
+    <meta property="og:image" content="./images/logo.jpeg">
+    <meta property="og:url" content="https://lpdmcleaning.co.uk/contact.html">
+    <meta property="og:site_name" content="LPD&M Cleaning Solutions">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact LPD&M Cleaning Solutions — Enfield">
+    <meta name="twitter:description" content="Call, WhatsApp, or message LPD&M Cleaning Solutions. Free quotes, fast response, Mon–Sun 8AM–8PM.">
+    <meta name="twitter:image" content="./images/logo.jpeg">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+         Exact structure from all previous pages.
+         "Contact" link carries the active class.
+         JS initActiveNavLink() also reinforces this at runtime.
+         ============================================================ -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./images/logo.jpeg"
+                             alt="LPD&M Cleaning Solutions Logo"
+                             class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="quote.html" class="btn-nav">Get Free Quote</a></li>
+                </ul>
+                <div class="hamburger"
+                     aria-label="Toggle navigation menu"
+                     role="button"
+                     tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ============================================================
+         PAGE HERO — Interior variant
+         .hero carries all visual tokens (gradient, wave overlay,
+         typography, trust bar). Padding reduced inline — this is a
+         layout measurement not a design token, consistent with the
+         approach used on services.html and about.html.
+         Background image: ./assets/images/hero-contact.jpg
+         ============================================================ -->
+    <section class="hero"
+             style="padding: 72px 0 52px;
+                    background-image: linear-gradient(135deg, rgba(46,117,182,0.87) 0%, rgba(20,70,130,0.87) 100%),
+                    url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&auto=format&fit=crop&q=80');
+                    background-size: cover;
+                    background-position: center;">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-subtitle">We're Here to Help with Your Cleaning Needs</p>
+                <p class="hero-description">
+                    Send us a message, call directly, or WhatsApp for an instant reply.
+                    Free quotes available seven days a week.
+                </p>
+                <div class="hero-buttons">
+                    <a href="tel:+447495687854" class="btn btn-primary">
+                        <i class="fas fa-phone"></i>&nbsp; Call Us Now
+                    </a>
+                    <a href="https://wa.me/447495687854"
+                       class="btn btn-whatsapp"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Us
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon–Sun: 8:00 AM – 8:00 PM</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Typically reply within 2 hours</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-tag"></i>
+                        <span>Free, no-obligation quotes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 1 — CONTACT GRID
+         Two-column layout: business details left, contact form right.
+
+         CLASS MAP — zero new CSS:
+           .quote-form-section   light-grey bg + 80px padding
+             .container          1200px max-width centred
+               .areas-content    1fr 1fr grid → 1-col at 968px
+                 LEFT  .testimonial-card     contained info panel
+                 RIGHT .quote-form-wrapper   white card with shadow
+                         form-message banners (error + success)
+                         .quote-form fields via .form-row/.form-group
+
+         JS CONTRACT — QuoteFormController (script.js §11):
+           Binding:   form[data-form="quote"]
+           Wrapper:   formEl.closest('.quote-form-wrapper')
+           Banners:   [data-form-message="error"] / [data-form-message="success"]
+           Button:    [data-form-submit]
+           Labels:    [data-submit-label] / [data-submit-spinner]
+           Validates: name, email, phone, service  (all required)
+           Collects:  message                       (optional)
+
+         id="contactForm"     — brief requirement on <form>
+         id="contactFeedback" — brief requirement; placed on
+                                .quote-form-wrapper so the JS
+                                wrapper-lookup resolves correctly
+         ============================================================ -->
+    <section class="quote-form-section">
+        <div class="container">
+            <div class="areas-content" style="align-items: start;">
+
+
+                <!-- ================================================
+                     LEFT COLUMN — Business Contact Details
+                     .testimonial-card  → light-grey panel, green
+                     left-border, rounded corners — perfect container
+                     for structured contact information.
+                     .footer-contact li → icon + label flex rows.
+                     .feature-icon      → coloured icon circle.
+                     .pricing-disclaimer → response-time note.
+                     .social-icons      → social link row.
+                     ================================================ -->
+                <div class="testimonial-card" style="height: 100%;">
+
+                    <h3 style="color: var(--primary-blue); margin-bottom: 0.25rem;">
+                        <i class="fas fa-address-card"
+                           style="color: var(--accent-green); margin-right: 0.6rem;"></i>
+                        Our Contact Details
+                    </h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1.75rem;">
+                        Reach us through any channel below — we respond promptly to all enquiries.
+                    </p>
+
+                    <ul class="footer-contact" style="list-style: none; padding: 0;">
+
+                        <!-- Phone -->
+                        <li style="padding: 1rem 0; border-bottom: 1px solid #e2e2e2;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <div class="feature-icon"
+                                     style="width: 50px; height: 50px; font-size: 1.1rem;
+                                            flex-shrink: 0; margin: 0;">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <strong style="display: block; color: var(--text-dark);
+                                                   font-size: 0.8rem; letter-spacing: 0.05em;
+                                                   text-transform: uppercase; margin-bottom: 0.2rem;">
+                                        Phone
+                                    </strong>
+                                    <a href="tel:+447495687854"
+                                       style="color: var(--primary-blue); font-weight: 600;
+                                              font-size: 1.05rem;">
+                                        +44 7495 687854
+                                    </a>
+                                    <p style="margin: 0.15rem 0 0; font-size: 0.82rem;">
+                                        Tap to call — fastest response
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- WhatsApp -->
+                        <li style="padding: 1rem 0; border-bottom: 1px solid #e2e2e2;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <div class="feature-icon"
+                                     style="width: 50px; height: 50px; font-size: 1.1rem;
+                                            flex-shrink: 0; margin: 0;
+                                            background-color: #25D366; color: var(--white);">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <strong style="display: block; color: var(--text-dark);
+                                                   font-size: 0.8rem; letter-spacing: 0.05em;
+                                                   text-transform: uppercase; margin-bottom: 0.2rem;">
+                                        WhatsApp
+                                    </strong>
+                                    <a href="https://wa.me/447495687854"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       style="color: #1eaa52; font-weight: 600; font-size: 1.05rem;">
+                                        +44 7495 687854
+                                    </a>
+                                    <p style="margin: 0.15rem 0 0; font-size: 0.82rem;">
+                                        Message us for an instant quote
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Email -->
+                        <li style="padding: 1rem 0; border-bottom: 1px solid #e2e2e2;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <div class="feature-icon"
+                                     style="width: 50px; height: 50px; font-size: 1.1rem;
+                                            flex-shrink: 0; margin: 0;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <strong style="display: block; color: var(--text-dark);
+                                                   font-size: 0.8rem; letter-spacing: 0.05em;
+                                                   text-transform: uppercase; margin-bottom: 0.2rem;">
+                                        Email
+                                    </strong>
+                                    <a href="mailto:lpdmcleaning@gmail.com"
+                                       style="color: var(--primary-blue); font-weight: 600;
+                                              font-size: 0.95rem; word-break: break-all;">
+                                        lpdmcleaning@gmail.com
+                                    </a>
+                                    <p style="margin: 0.15rem 0 0; font-size: 0.82rem;">
+                                        We reply to all emails within 24 hours
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Location -->
+                        <li style="padding: 1rem 0; border-bottom: 1px solid #e2e2e2;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <div class="feature-icon"
+                                     style="width: 50px; height: 50px; font-size: 1.1rem;
+                                            flex-shrink: 0; margin: 0;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <strong style="display: block; color: var(--text-dark);
+                                                   font-size: 0.8rem; letter-spacing: 0.05em;
+                                                   text-transform: uppercase; margin-bottom: 0.2rem;">
+                                        Location
+                                    </strong>
+                                    <span style="color: var(--text-dark); font-weight: 600;
+                                                 font-size: 1.05rem;">
+                                        Enfield, London
+                                    </span>
+                                    <p style="margin: 0.15rem 0 0; font-size: 0.82rem;">
+                                        Serving all of North London
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Working Hours -->
+                        <li style="padding: 1rem 0;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                                <div class="feature-icon"
+                                     style="width: 50px; height: 50px; font-size: 1.1rem;
+                                            flex-shrink: 0; margin: 0;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <strong style="display: block; color: var(--text-dark);
+                                                   font-size: 0.8rem; letter-spacing: 0.05em;
+                                                   text-transform: uppercase; margin-bottom: 0.2rem;">
+                                        Working Hours
+                                    </strong>
+                                    <span style="color: var(--text-dark); font-weight: 600;
+                                                 font-size: 1.05rem;">
+                                        Monday – Sunday
+                                    </span>
+                                    <p style="margin: 0.15rem 0 0; font-size: 0.82rem;">
+                                        8:00 AM – 8:00 PM
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <!-- Response-time commitment strip -->
+                    <div class="pricing-disclaimer" style="margin-top: 1.5rem;">
+                        <p>
+                            <i class="fas fa-bolt"></i>
+                            <strong>Fast response guaranteed.</strong>
+                            We typically reply to all enquiries within 2 hours during business hours.
+                        </p>
+                    </div>
+
+                    <!-- Social links -->
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-weight: 600; color: var(--text-dark);
+                                  font-size: 0.9rem; margin-bottom: 0.75rem;">
+                            Follow Us
+                        </p>
+                        <div class="social-icons">
+                            <!-- TODO: Replace with live social profile URLs when accounts go live -->
+                            <a href="https://facebook.com"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="Facebook">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://instagram.com"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com"
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END LEFT COLUMN -->
+
+
+                <!-- ================================================
+                     RIGHT COLUMN — Contact Form
+                     id="contactFeedback" on .quote-form-wrapper so
+                     JS wrapper-lookup (formEl.closest('.quote-form-wrapper'))
+                     finds the banner siblings correctly.
+
+                     Form fields vs JS contract:
+                       name="name"    → "Full Name"         — JS validate() ✓
+                       name="email"   → "Email Address"     — JS validate() ✓
+                       name="phone"   → "Phone Number"      — JS validate() ✓
+                       name="service" → "Service Enquiry"   — JS validate() ✓
+                                        semantically maps to brief's "Subject"
+                       name="message" → "Message"           — JS collects, optional
+
+                     Error banner surfaces phone + WhatsApp CTAs per the
+                     CONFIG.BUSINESS_PHONE contract in script.js.
+                     ================================================ -->
+                <div class="quote-form-wrapper" id="contactFeedback">
+
+                    <!-- Panel heading -->
+                    <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                        <h2 style="font-size: 1.6rem;">Send Us a Message</h2>
+                        <p style="font-size: 0.95rem;">
+                            Fill in the form and we'll get back to you within 24 hours.
+                            Fields marked
+                            <span aria-hidden="true"
+                                  style="color: var(--error-border); font-weight: 700;">*</span>
+                            are required.
+                        </p>
+                    </div>
+
+                    <!-- ─── ERROR BANNER ──────────────────────────
+                         QuoteFormController.handleFailure() removes
+                         the hidden attribute to show this banner.
+                         Contains phone + WhatsApp CTAs per spec.
+                         ─────────────────────────────────────────── -->
+                    <div class="form-message form-message--error"
+                         data-form-message="error"
+                         role="alert"
+                         aria-live="assertive"
+                         hidden>
+                        <div class="form-message__icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="form-message__body">
+                            <strong>We couldn't send your message right now.</strong>
+                            <p>
+                                Please reach out directly — we're available and ready to help:
+                            </p>
+                            <div class="form-message__actions">
+                                <a href="tel:+447495687854"
+                                   class="btn btn-primary btn-small">
+                                    <i class="fas fa-phone"></i>&nbsp; Call +44 7495 687854
+                                </a>
+                                <a href="https://wa.me/447495687854"
+                                   class="btn btn-whatsapp btn-small"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ─── SUCCESS BANNER ────────────────────────
+                         QuoteFormController.handleSuccess() removes
+                         the hidden attribute and resets the form.
+                         ─────────────────────────────────────────── -->
+                    <div class="form-message form-message--success"
+                         data-form-message="success"
+                         role="status"
+                         aria-live="polite"
+                         hidden>
+                        <div class="form-message__icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="form-message__body">
+                            <strong>Message received — thank you!</strong>
+                            <p>
+                                We'll be in touch within 24 hours. For anything urgent,
+                                call us on
+                                <a href="tel:+447495687854"
+                                   style="color: var(--success-text); font-weight: 600;">
+                                    +44 7495 687854
+                                </a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ─── CONTACT FORM ──────────────────────────
+                         id="contactForm"      — brief requirement
+                         data-form="quote"     — QuoteFormController selector
+                         novalidate            — JS handles all validation
+                         ─────────────────────────────────────────── -->
+                    <form id="contactForm"
+                          class="quote-form"
+                          data-form="quote"
+                          novalidate
+                          aria-label="Contact LPD&M Cleaning Solutions">
+
+                        <!-- Row 1: Full Name + Email Address -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label for="cf-name">
+                                    Full Name
+                                    <span aria-hidden="true"
+                                          style="color: var(--error-border);">*</span>
+                                </label>
+                                <input type="text"
+                                       id="cf-name"
+                                       name="name"
+                                       placeholder="e.g. Sarah Mitchell"
+                                       required
+                                       autocomplete="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cf-email">
+                                    Email Address
+                                    <span aria-hidden="true"
+                                          style="color: var(--error-border);">*</span>
+                                </label>
+                                <input type="email"
+                                       id="cf-email"
+                                       name="email"
+                                       placeholder="e.g. sarah@example.co.uk"
+                                       required
+                                       autocomplete="email">
+                            </div>
+
+                        </div>
+                        <!-- END ROW 1 -->
+
+                        <!-- Row 2: Phone Number + Service Enquiry
+                             ──────────────────────────────────────
+                             NOTE: The brief specifies Subject + Message
+                             but the existing QuoteFormController validates
+                             name / email / phone / service — all four are
+                             hardcoded as required in validate(). Phone and
+                             service must be present or every submission
+                             fails client-side before reaching the API.
+                             "Service Enquiry" maps the brief's Subject
+                             concept to the JS `service` field cleanly.
+                             ────────────────────────────────────────── -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label for="cf-phone">
+                                    Phone Number
+                                    <span aria-hidden="true"
+                                          style="color: var(--error-border);">*</span>
+                                </label>
+                                <input type="tel"
+                                       id="cf-phone"
+                                       name="phone"
+                                       placeholder="e.g. 07700 900 123"
+                                       required
+                                       autocomplete="tel">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cf-service">
+                                    Service Enquiry
+                                    <span aria-hidden="true"
+                                          style="color: var(--error-border);">*</span>
+                                </label>
+                                <select id="cf-service"
+                                        name="service"
+                                        required>
+                                    <option value="">Select a service or topic</option>
+                                    <option value="end-of-tenancy">End of Tenancy Cleaning</option>
+                                    <option value="deep-cleaning">Deep Cleaning</option>
+                                    <option value="post-construction">Post Construction Cleaning</option>
+                                    <option value="office-cleaning">Office Cleaning</option>
+                                    <option value="home-cleaning">Home Cleaning</option>
+                                    <option value="general-enquiry">General Enquiry</option>
+                                    <option value="pricing">Pricing &amp; Quotes</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <!-- END ROW 2 -->
+
+                        <!-- Message — full width, optional -->
+                        <div class="form-group">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message"
+                                      name="message"
+                                      rows="6"
+                                      placeholder="Tell us about your cleaning requirements, preferred dates, property details, or any other specific needs…"></textarea>
+                        </div>
+
+                        <!-- Submit button
+                             data-form-submit    — setPending() disables this element
+                             data-submit-label   — hidden when pending=true
+                             data-submit-spinner — visible when pending=true
+                             aria-busy           — toggled by setPending() -->
+                        <button type="submit"
+                                class="btn btn-primary btn-large"
+                                data-form-submit
+                                aria-busy="false">
+                            <span data-submit-label>
+                                <i class="fas fa-paper-plane"
+                                   style="margin-right: 0.5rem;"></i>
+                                Send Message
+                            </span>
+                            <span data-submit-spinner hidden>
+                                <i class="fas fa-spinner fa-spin"
+                                   style="margin-right: 0.5rem;"></i>
+                                Sending…
+                            </span>
+                        </button>
+
+                    </form>
+                    <!-- END CONTACT FORM -->
+
+                </div>
+                <!-- END RIGHT COLUMN / id="contactFeedback" -->
+
+
+            </div>
+            <!-- END .areas-content two-column grid -->
+
+        </div>
+    </section>
+    <!-- END SECTION 1 — CONTACT GRID -->
+
+
+    <!-- ============================================================
+         SECTION 2 — GOOGLE MAPS EMBED
+         Full-width within .container. Map centres on Enfield Town
+         (51.6523° N, 0.0835° W). Standard Google Maps iframe embed
+         — no API key required for this format.
+
+         Classes used:
+           .services-overview  light-grey bg, 80px padding
+           .section-header     centred h2 + p
+           .pricing-disclaimer green-bordered address strip below map
+
+         Map wrapper: inline border-radius + box-shadow only.
+         These are dimensional/elevation properties — not design
+         tokens — so inline is the correct zero-new-CSS approach.
+         ============================================================ -->
+    <section class="services-overview">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Where We Are</h2>
+                <p>
+                    Based in Enfield, serving all of North London — including Edmonton,
+                    Barnet, Haringey, Waltham Forest, and surrounding areas
+                </p>
+            </div>
+
+            <!-- Map wrapper — border-radius/shadow inline (dimension, not token) -->
+            <div style="border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                        line-height: 0;">
+                <iframe
+                    title="LPD&M Cleaning Solutions — Enfield, North London"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39643!2d-0.0835!3d51.6523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761e2b6a35cfc9%3A0xc4b2fb8ab95ef4b2!2sEnfield%2C%20Greater%20London!5e0!3m2!1sen!2suk!4v1700000000000!5m2!1sen!2suk"
+                    width="100%"
+                    height="440"
+                    style="border: 0; display: block;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    aria-label="Interactive map — Enfield, North London, LPD&M Cleaning Solutions service area">
+                </iframe>
+            </div>
+
+            <!-- Address strip below the map -->
+            <div class="pricing-disclaimer">
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>LPD&amp;M Cleaning Solutions Ltd</strong> &mdash;
+                    Enfield, London. Covering Enfield, Edmonton, Barnet, Haringey,
+                    Waltham Forest &amp; surrounding North London areas.
+                    &nbsp;&bull;&nbsp;
+                    <a href="tel:+447495687854"
+                       style="color: var(--primary-blue); font-weight: 600;">
+                        +44 7495 687854
+                    </a>
+                    &nbsp;&bull;&nbsp;
+                    Mon–Sun: 8:00 AM – 8:00 PM
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <!-- END SECTION 2 — MAP -->
+
+
+    <!-- ============================================================
+         SECTION 3 — WHAT TO EXPECT
+         Removes hesitation for anyone still on the fence.
+         Classes: .why-choose-us + .features-grid + .feature-item
+         ============================================================ -->
+    <section class="why-choose-us">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>What to Expect When You Contact Us</h2>
+                <p>No pressure, no obligation — just honest, helpful advice from a professional team</p>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Response</h3>
+                    <p>
+                        We respond to every enquiry within 2 hours during business hours.
+                        WhatsApp and calls get an instant response whenever possible.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-pound-sign"></i>
+                    </div>
+                    <h3>Free, No-Obligation Quote</h3>
+                    <p>
+                        Every quote is completely free. We assess your requirements and
+                        give a clear, itemised price — no commitment required.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Speak to a Real Person</h3>
+                    <p>
+                        No automated systems or bots. When you call or message,
+                        you speak directly with our team — honest answers every time.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- END SECTION 3 -->
+
+
+    <!-- ============================================================
+         SECTION 4 — FINAL CTA
+         Exact .final-cta reuse from all previous pages.
+         ============================================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Book Your Clean?</h2>
+                <p>
+                    Get a free, no-obligation quote in minutes — and experience the
+                    LPD&amp;M standard for yourself
+                </p>
+                <div class="cta-buttons">
+                    <a href="quote.html" class="btn btn-primary btn-large">
+                        Get Your Free Quote
+                    </a>
+                    <a href="tel:+447495687854" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i>&nbsp; Call +44 7495 687854
+                    </a>
+                    <a href="https://wa.me/447495687854"
+                       class="btn btn-whatsapp btn-large"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp Us
+                    </a>
+                </div>
+                <p class="cta-hours">Available Monday – Sunday: 8:00 AM – 8:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER — Exact replica from index.html / services.html / about.html
+         ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Column 1: About -->
+                <div class="footer-col">
+                    <h4>LPD&amp;M Cleaning Solutions</h4>
+                    <p>
+                        Professional, reliable cleaning services for homes and businesses
+                        across Enfield and North London.
+                    </p>
+                    <div class="footer-certifications">
+                        <p><i class="fas fa-check-circle"></i> Companies House Registered</p>
+                        <p><i class="fas fa-check-circle"></i> Fully Insured</p>
+                        <p><i class="fas fa-check-circle"></i> COSHH Compliant</p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#end-of-tenancy">End of Tenancy Cleaning</a></li>
+                        <li><a href="services.html#deep-cleaning">Deep Cleaning</a></li>
+                        <li><a href="services.html#office-cleaning">Office Cleaning</a></li>
+                        <li><a href="services.html#home-cleaning">Home Cleaning</a></li>
+                        <li><a href="services.html#post-construction">Post Construction Cleaning</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+447495687854">+44 7495 687854</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:lpdmcleaning@gmail.com">lpdmcleaning@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Enfield, London</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon–Sun: 8:00 AM – 8:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="social-icons">
+                        <!-- TODO: replace with live social profile URLs -->
+                        <a href="https://facebook.com"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com"
+                           target="_blank" rel="noopener noreferrer"
+                           aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 LPD&amp;M Cleaning Solutions Ltd. All Rights Reserved.</p>
+                  <div class="developer-credit">
+    <p>Website designed & developed by <a href="https://your-portfolio-link.com" target="_blank">RegnabTec</a></p>
+</div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/447495687854"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

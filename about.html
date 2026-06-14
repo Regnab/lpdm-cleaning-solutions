@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About LPD&M Cleaning Solutions — a trusted, fully insured, and COSHH compliant cleaning company based in Enfield, London. Meet our team and learn our story.">
+    <meta name="keywords" content="about LPD&M cleaning, cleaning company Enfield, professional cleaners London, insured cleaning company, COSHH compliant cleaners">
+    <title>About Us | LPD&amp;M Cleaning Solutions — Enfield &amp; North London</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="./images/logo.jpeg">
+
+    <!-- Preconnect for faster CDN loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us | LPD&M Cleaning Solutions — Enfield &amp; North London">
+    <meta property="og:description" content="About LPD&M Cleaning Solutions — a trusted, fully insured, and COSHH compliant cleaning company based in Enfield, London. Meet our team and learn our story.">
+    <meta property="og:image" content="./images/logo.jpeg">
+    <meta property="og:url" content="https://lpdmcleaning.co.uk/about.html">
+    <meta property="og:site_name" content="LPD&M Cleaning Solutions">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About LPD&M Cleaning Solutions — Enfield">
+    <meta name="twitter:description" content="Meet the team behind LPD&M — fully insured, COSHH compliant, Companies House registered cleaning professionals.">
+    <meta name="twitter:image" content="./images/logo.jpeg">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!--
+        PAGE-SCOPED STYLES (2 additions only)
+        =========================================================
+        These two rules have no equivalent in styles.css:
+
+        1. .hero--page  — reduces hero height for interior pages.
+           The base .hero class sets 120px/80px padding designed for
+           the homepage full-bleed hero. Interior pages need a
+           shallower variant. No new design tokens are introduced;
+           the same gradient + background-image pattern is kept.
+
+        2. .story-section  — alternating text/image layout for the
+           About story rows. It extends .service-areas / .areas-content
+           semantically, but those classes carry the wrong section
+           background and layout assumptions for a content-heavy prose
+           section. One 80px-padding wrapper + the .areas-content grid
+           (already in styles.css) is all that's needed.
+
+        Both are tightly scoped to this page and introduce zero new
+        design tokens — they only compose values already in the system.
+        =========================================================
+    -->
+    <style>
+        /* 1. Reduced-height hero for interior pages */
+        .hero--page {
+            padding: 72px 0 52px;
+            background-image:
+                linear-gradient(135deg, rgba(46, 117, 182, 0.87) 0%, rgba(20, 70, 130, 0.87) 100%),
+                url('./images/SC.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 2. About story section wrapper — background + vertical rhythm only */
+        .story-section {
+            padding: 80px 0;
+        }
+
+        .story-section:nth-of-type(even) {
+            background-color: var(--light-grey);
+        }
+
+        .story-section:nth-of-type(odd) {
+            background-color: var(--white);
+        }
+
+        /* Reverse column order for alternating rows on desktop */
+        .story-section--reverse .areas-content {
+            direction: rtl;
+        }
+
+        .story-section--reverse .areas-content > * {
+            direction: ltr;
+        }
+
+        /* Story image block — mirrors .service-image proportions */
+        .story-image {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            aspect-ratio: 4 / 3;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Stat row inside story text — reuses brand tokens */
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--light-grey);
+            border-radius: 10px;
+        }
+
+        .story-stat {
+            text-align: center;
+        }
+
+        .story-stat strong {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+
+        .story-stat span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Values list inside story copy — reuses areas-list tick style */
+        .story-checklist {
+            list-style: none;
+            margin: 1.25rem 0 1.75rem;
+        }
+
+        .story-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        .story-checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .story-checklist li i {
+            color: var(--accent-green);
+            font-size: 1rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Team card grid — mirrors testimonials-grid structure */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.13);
+        }
+
+        .team-card__photo {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background-color: var(--light-grey);
+        }
+
+        .team-card__photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+
+        /* Placeholder avatar when photo not yet supplied */
+        .team-card__photo--placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--primary-blue);
+            opacity: 0.25;
+        }
+
+        .team-card__body {
+            padding: 1.5rem;
+        }
+
+        .team-card__name {
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
+        }
+
+        .team-card__role {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-card__body p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Credential badge strip — reuses trust-item & pricing-disclaimer tokens */
+        .credentials-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
+
+        .credential-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: var(--white);
+            border: 2px solid var(--accent-green);
+            border-radius: 50px;
+            padding: 0.6rem 1.4rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .credential-badge i {
+            color: var(--accent-green);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 968px) {
+            .story-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .story-section--reverse .areas-content {
+                direction: ltr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .story-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+
+            .story-stat strong {
+                font-size: 1.5rem;
+            }
+
+            .credentials-strip {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-card__photo {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+         — Exact replica from index.html / services.html
+         — "About Us" carries the active class
+         ============================================================ -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./images/logo.jpeg" alt="LPD&M Cleaning Solutions Logo" class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="quote.html" class="btn-nav">Get Free Quote</a></li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         PAGE HERO — Interior variant (hero + hero--page modifier)
+         Shorter padding via .hero--page; all visual tokens identical
+         to the homepage hero (gradient, trust bar, typography).
+         ============================================================ -->
+    <section class="hero hero--page">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">About LPD&amp;M Cleaning Solutions</h1>
+                <p class="hero-subtitle">Trusted Professionals in Enfield &amp; North London</p>
+                <p class="hero-description">
+                    A dedicated team built on professionalism, reliability, and an unwavering commitment to spotless results — every single time.
+                </p>
+                <div class="hero-buttons">
+                    <a href="quote.html" class="btn btn-primary">Get Your Free Quote</a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get in Touch
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Fully Insured</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>COSHH Compliant</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-building"></i>
+                        <span>Companies House Registered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 1 — WHO WE ARE (Story + Image, standard orientation)
+         Layout: .areas-content (1fr 1fr grid, already responsive)
+         Background: var(--white) via .story-section:nth-of-type(odd)
+         ============================================================ -->
+    <section class="story-section">
+        <div class="container">
+            <div class="areas-content">
+
+                <!-- Image column -->
+                <div class="story-image">
+                    <img
+                        src="./images/SI.jpg"
+                        alt="LPD&M cleaning team at work in an Enfield home"
+                        loading="lazy"
+                    >
+                </div>
+
+                <!-- Text column -->
+                <div class="areas-text">
+                    <div class="section-header" style="text-align:left; margin-bottom:1.5rem;">
+                        <h2>Welcome to LPD&amp;M Cleaning Solutions</h2>
+                    </div>
+                    <p>
+                        At LPD&amp;M Cleaning Solutions, we believe a clean space is more than just appearance — it's peace of mind. Based in Enfield, London, we provide professional cleaning services to landlords, letting agents, tenants, homeowners, and businesses across North London.
+                    </p>
+                    <p>
+                        Our mission is simple: deliver exceptional cleaning that exceeds expectations. Whether you're moving out and need your deposit back, preparing a property for new tenants, or maintaining a spotless office environment, our experienced team is here to help.
+                    </p>
+
+                    <!-- Business at a glance -->
+                    <div class="story-stats">
+                        <div class="story-stat">
+                            <strong>5+</strong>
+                            <span>Services Offered</span>
+                        </div>
+                        <div class="story-stat">
+                            <strong>7</strong>
+                            <span>Days a Week</span>
+                        </div>
+                        <div class="story-stat">
+                            <strong>100%</strong>
+                            <span>Satisfaction Guarantee</span>
+                        </div>
+                    </div>
+
+                    <!-- Credential badges -->
+                    <div class="credentials-strip">
+                        <span class="credential-badge">
+                            <i class="fas fa-shield-alt"></i> Fully Insured
+                        </span>
+                        <span class="credential-badge">
+                            <i class="fas fa-certificate"></i> COSHH Compliant
+                        </span>
+                        <span class="credential-badge">
+                            <i class="fas fa-landmark"></i> Companies House Registered
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2 — OUR MISSION & VALUES (Image right / text left)
+         Layout: .areas-content with .story-section--reverse modifier
+         Background: var(--light-grey) via :nth-of-type(even)
+         ============================================================ -->
+    <section class="story-section story-section--reverse">
+        <div class="container">
+            <div class="areas-content">
+
+                <!-- Text column (appears first in source, RTL trick swaps visually on desktop) -->
+                <div class="areas-text">
+                    <div class="section-header" style="text-align:left; margin-bottom:1.5rem;">
+                        <h2>Our Mission &amp; Core Values</h2>
+                    </div>
+                    <p>
+                        We founded LPD&amp;M Cleaning Solutions with a single purpose: to bring genuine professional cleaning standards to homes and businesses across Enfield and North London — delivered by a team you can actually trust.
+                    </p>
+
+                    <ul class="story-checklist">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Professionalism</strong> — We conduct every job with the highest standards of integrity and expertise, from first contact to final inspection.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Reliability</strong> — We show up on time, every time. Our clients trust us because we've earned that trust, consistently.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Quality</strong> — We never compromise on the standard of our work. Every room, every surface, every time.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Customer First</strong> — Your satisfaction is our priority. If something isn't right, we make it right — guaranteed.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span><strong>Transparency</strong> — Clear pricing, honest communication, and zero hidden fees. You always know exactly what you're paying for.</span>
+                        </li>
+                    </ul>
+
+                    <a href="services.html" class="btn btn-primary">Explore Our Services</a>
+                </div>
+
+                <!-- Image column -->
+                <div class="story-image">
+                    <img
+                        src="./images/PC.jpg"
+                        alt="Professional cleaner demonstrating meticulous attention to detail"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3 — WHY CHOOSE US (Trust & Credentials)
+         Reuses .why-choose-us + .features-grid + .feature-item
+         directly from styles.css — zero modifications
+         ============================================================ -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why North London Trusts LPD&amp;M</h2>
+                <p>Every credential, every guarantee, and every process exists to give you complete confidence</p>
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Fully Insured</h3>
+                    <p>We carry comprehensive public liability insurance on every job. Your property and belongings are fully protected throughout our visit.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>COSHH Compliant</h3>
+                    <p>All our products and processes comply with the Control of Substances Hazardous to Health regulations — safe for your family, pets, and the environment.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Companies House Registered</h3>
+                    <p>LPD&amp;M Cleaning Solutions Ltd is a fully registered, legitimate UK business — verified with Companies House and HMRC. No rogue traders.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Trained Professionals</h3>
+                    <p>Our team members are carefully selected, trained to our standards, and consistently assessed to ensure every clean meets our quality benchmark.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>100% Satisfaction Guarantee</h3>
+                    <p>If any aspect of your clean doesn't meet expectations, we return to put it right — at no additional cost to you. No arguments, no delays.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-pound-sign"></i>
+                    </div>
+                    <h3>Transparent Pricing</h3>
+                    <p>Every quote is itemised and agreed up-front. There are no hidden fees, no surprise charges, and no pressure to add services you don't need.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4 — MEET THE LEADERSHIP TEAM
+         Layout: .team-grid (new, scoped above)
+         Background: var(--light-grey) — matches services-overview rhythm
+         ============================================================ -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet the Team</h2>
+                <p>The people behind every spotless result in Enfield and North London</p>
+            </div>
+
+            <div class="team-grid">
+
+                <!-- Mindy — PSC / Owner -->
+                <div class="team-card">
+                    <div class="team-card__photo">
+                        <!--
+                            Backend team: replace with actual photo.
+                            Filename convention: ./assets/images/team-mindy.jpg
+                            Recommended crop: head & shoulders, 4:3 or 1:1, 600px min width.
+                        -->
+                        <img
+                            src="./assets/images/team-mindy.jpg"
+                            alt="Mindy — Owner and Person with Significant Control, LPD&M Cleaning Solutions"
+                            loading="lazy"
+                            onerror="this.parentElement.classList.add('team-card__photo--placeholder'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user-circle\'></i>';"
+                        >
+                    </div>
+                    <div class="team-card__body">
+                        <h3 class="team-card__name">Mindy</h3>
+                        <span class="team-card__role">Owner &amp; Person with Significant Control</span>
+                        <p>The driving force behind LPD&amp;M. Mindy's vision and commitment to quality set the standards that define every clean we deliver.</p>
+                    </div>
+                </div>
+
+                <!-- Michael — Director -->
+                <div class="team-card">
+                    <div class="team-card__photo">
+                        <img
+                            src="./assets/images/team-michael.jpg"
+                            alt="Michael — Company Director, LPD&M Cleaning Solutions"
+                            loading="lazy"
+                            onerror="this.parentElement.classList.add('team-card__photo--placeholder'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user-circle\'></i>';"
+                        >
+                    </div>
+                    <div class="team-card__body">
+                        <h3 class="team-card__name">Michael</h3>
+                        <span class="team-card__role">Company Director</span>
+                        <p>Michael oversees day-to-day operations, ensuring every job runs on schedule, on brief, and to the professional standards our clients expect.</p>
+                    </div>
+                </div>
+
+                <!-- Reginald — Secretary (Pending) -->
+                <div class="team-card">
+                    <div class="team-card__photo">
+                        <img
+                            src="./images/REG.jpeg"
+                            alt="Reginald — Second Director (Pending), LPD&M Cleaning Solutions"
+                            loading="lazy"
+                            onerror="this.parentElement.classList.add('team-card__photo--placeholder'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user-circle\'></i>';"
+                        >
+                    </div>
+                    <div class="team-card__body">
+                        <h3 class="team-card__name">Reginald</h3>
+                        <span class="team-card__role">Secretary</span>
+                        <p>Reginald brings technical support to the business — ensuring LPD&amp;M scales professionally and sustainably.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 5 — OUR COMMITMENT (Story row 3, no image needed)
+         Reuses .service-areas + .areas-text styling
+         Background: var(--white) / gradient — matches service-areas
+         ============================================================ -->
+    <section class="service-areas">
+        <div class="container">
+            <div class="areas-content">
+
+                <div class="areas-text">
+                    <h2>Our Commitment to You</h2>
+                    <p>
+                        When you book with LPD&amp;M Cleaning Solutions, you're not just hiring a cleaning company — you're choosing a team that takes personal pride in every result. We understand what's at stake: your deposit, your home, your professional workspace, your peace of mind.
+                    </p>
+                    <p>
+                        That's why every member of our team works to the same checklist-driven standard, uses only approved, COSHH-compliant products, and leaves every property fully inspected before they leave. If it isn't spotless, it isn't done.
+                    </p>
+                    <ul class="story-checklist">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Serving Enfield, Edmonton, Barnet, Haringey, Waltham Forest, and surrounding North London areas</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Available Monday to Sunday, 8:00 AM – 8:00 PM for maximum flexibility</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-comments"></i>
+                            <span>Fast response to all enquiries — typically within 2 hours during business hours</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Check Your Postcode</a>
+                </div>
+
+                <!-- Decorative icon — mirrors the .areas-map pattern exactly -->
+                <div class="areas-map">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 6 — TESTIMONIALS
+         Exact .testimonials + .testimonials-grid reuse from index.html
+         ============================================================ -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Real feedback from homeowners, landlords, and businesses across North London</p>
+            </div>
+
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Absolutely brilliant service! The team did an end of tenancy clean for my flat and I got my full deposit back. Professional, thorough, and great value for money."</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah M.</strong>
+                        <span>End of Tenancy Client, Enfield</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"We use LPD&amp;M for our office cleaning and they're fantastic. Always on time, professional, and our workspace looks spotless. Highly recommend for any business!"</p>
+                    <div class="testimonial-author">
+                        <strong>James T.</strong>
+                        <span>Business Owner, North London</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"After our home renovation, LPD&amp;M did an amazing job with the post-construction cleaning. They removed all the dust and debris. The house looked brand new!"</p>
+                    <div class="testimonial-author">
+                        <strong>Priya K.</strong>
+                        <span>Homeowner, Barnet</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 7 — FINAL CTA
+         Exact .final-cta reuse. Buttons route to contact.html and
+         quote.html per the architectural rule, with tel: + WhatsApp.
+         ============================================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Work with a Team You Can Trust?</h2>
+                <p>Get your free, no-obligation quote today and experience the LPD&amp;M standard for yourself</p>
+                <div class="cta-buttons">
+                    <a href="quote.html" class="btn btn-primary btn-large">Get Your Free Quote</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
+                    <a href="tel:+447495687854" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i> Call +44 7495 687854
+                    </a>
+                    <a href="https://wa.me/447495687854" class="btn btn-whatsapp btn-large" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+                <p class="cta-hours">Available Monday – Sunday: 8:00 AM – 8:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER — Exact replica from index.html / services.html
+         ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Column 1: About -->
+                <div class="footer-col">
+                    <h4>LPD&amp;M Cleaning Solutions</h4>
+                    <p>Professional, reliable cleaning services for homes and businesses across Enfield and North London.</p>
+                    <div class="footer-certifications">
+                        <p><i class="fas fa-check-circle"></i> Companies House Registered</p>
+                        <p><i class="fas fa-check-circle"></i> Fully Insured</p>
+                        <p><i class="fas fa-check-circle"></i> COSHH Compliant</p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#end-of-tenancy">End of Tenancy Cleaning</a></li>
+                        <li><a href="services.html#deep-cleaning">Deep Cleaning</a></li>
+                        <li><a href="services.html#office-cleaning">Office Cleaning</a></li>
+                        <li><a href="services.html#home-cleaning">Home Cleaning</a></li>
+                        <li><a href="services.html#post-construction">Post Construction Cleaning</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+447495687854">+44 7495 687854</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:lpdmcleaning@gmail.com">lpdmcleaning@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Enfield, London</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon–Sun: 8:00 AM – 8:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="social-icons">
+                        <!-- TODO: replace with live social profile URLs -->
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 LPD&amp;M Cleaning Solutions Ltd. All Rights Reserved.</p>
+                  <div class="developer-credit">
+    <p>Website designed & developed by <a href="https://your-portfolio-link.com" target="_blank">RegnabTec</a></p>
+</div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/447495687854" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPD&M — Secretary Desk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & tokens ──────────────────────────────────────── */
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        :root {
+            --brand-blue:      #2E75B6;
+            --brand-green:     #70AD47;
+            --brand-dark:      #1a3f6f;
+            --surface:         #ffffff;
+            --bg:              #f0f4f8;
+            --border:          #e2e8f0;
+            --text-primary:    #1e293b;
+            --text-secondary:  #64748b;
+            --text-muted:      #94a3b8;
+
+            /* Status colours */
+            --new-bg:          #dcfce7;
+            --new-text:        #166534;
+            --responded-bg:    #f1f5f9;
+            --responded-text:  #475569;
+
+            /* Feedback colours */
+            --error-bg:        #fef2f2;
+            --error-text:      #991b1b;
+            --error-border:    #fca5a5;
+
+            --radius:          8px;
+            --shadow-sm:       0 1px 3px rgba(0,0,0,.08);
+            --shadow-md:       0 4px 16px rgba(0,0,0,.10);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* ── Layout ──────────────────────────────────────────────── */
+        .page-wrapper { max-width: 1400px; margin: 0 auto; padding: 32px 24px 64px; }
+
+        /* ── Header ──────────────────────────────────────────────── */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 28px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .header-left h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--brand-dark);
+            line-height: 1.2;
+        }
+
+        .header-left p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--brand-blue);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: .03em;
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity .15s, transform .1s;
+        }
+        .btn:hover  { opacity: .88; transform: translateY(-1px); }
+        .btn:active { transform: translateY(0); }
+        .btn-primary   { background: var(--brand-blue);  color: #fff; }
+        .btn-success   { background: var(--brand-green); color: #fff; }
+        .btn-ghost     { background: var(--surface); color: var(--brand-blue);
+                         border: 1.5px solid var(--brand-blue); }
+
+        /* ── Stats bar ───────────────────────────────────────────── */
+        /* BUG-11 FIX: summary counts for the secretary */
+        .stats-bar {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 16px 24px;
+            box-shadow: var(--shadow-sm);
+            flex: 1;
+            min-width: 140px;
+            border-top: 3px solid var(--border);
+        }
+        .stat-card.stat-total    { border-top-color: var(--brand-blue); }
+        .stat-card.stat-new      { border-top-color: var(--brand-green); }
+        .stat-card.stat-responded{ border-top-color: var(--text-muted); }
+
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+        .stat-card .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        /* ── Error / loading banner ──────────────────────────────── */
+        /* BUG-09 + BUG-10 FIX */
+        .status-banner {
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-banner.visible { display: flex; }
+        .status-banner.loading {
+            background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;
+        }
+        .status-banner.error {
+            background: var(--error-bg); color: var(--error-text);
+            border: 1px solid var(--error-border);
+        }
+
+        /* ── Table card ──────────────────────────────────────────── */
+        .table-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .table-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .table-toolbar h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ── Filter tabs ─────────────────────────────────────────── */
+        .filter-tabs {
+            display: flex;
+            gap: 6px;
+        }
+
+        .filter-tab {
+            padding: 6px 14px;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: all .15s;
+        }
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: var(--brand-blue);
+            border-color: var(--brand-blue);
+            color: #fff;
+        }
+
+        /* ── Table ───────────────────────────────────────────────── */
+        .table-scroll { overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        thead th {
+            background: #f8fafc;
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        tbody tr {
+            transition: background .12s;
+        }
+        tbody tr:hover { background: #f8fafc; }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        /* BUG-08 FIX: all 10 required columns now rendered */
+        .cell-id    { font-weight: 700; color: var(--text-muted); font-size: 0.8rem; }
+        .cell-name  { font-weight: 600; }
+        .cell-sub   { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
+
+        .email-link {
+            color: var(--brand-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .email-link:hover { text-decoration: underline; }
+
+        .service-tag {
+            display: inline-block;
+            background: #e0f0ff;
+            color: #0369a1;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Status badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .badge-new       { background: var(--new-bg);       color: var(--new-text); }
+        .badge-responded { background: var(--responded-bg); color: var(--responded-text); }
+
+        /* Action buttons inside table */
+        .action-respond {
+            background: var(--brand-green);
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity .15s;
+            white-space: nowrap;
+        }
+        .action-respond:hover    { opacity: .85; }
+        .action-respond:disabled { opacity: .4; cursor: not-allowed; }
+
+        .btn-detail {
+            background: transparent;
+            color: var(--brand-blue);
+            border: 1px solid var(--brand-blue);
+            padding: 5px 12px;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-left: 6px;
+        }
+        .btn-detail:hover { background: var(--brand-blue); color: #fff; }
+
+        .done-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Empty state ─────────────────────────────────────────── */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        .empty-state .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .empty-state p            { font-size: 0.9rem; }
+
+        /* ── Detail Modal ────────────────────────────────────────── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal-overlay.visible { display: flex; }
+
+        .modal {
+            background: var(--surface);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 640px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--surface);
+            z-index: 1;
+        }
+        .modal-header h3 { font-size: 1rem; font-weight: 700; }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            line-height: 1;
+            padding: 4px;
+        }
+        .modal-close:hover { color: var(--text-primary); }
+
+        .modal-body  { padding: 24px; }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .detail-item { display: flex; flex-direction: column; gap: 3px; }
+        .detail-item.full-width { grid-column: 1 / -1; }
+
+        .detail-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--text-muted);
+        }
+
+        .detail-value {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            word-break: break-word;
+        }
+
+        .detail-value.message-body {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* ── Login overlay ───────────────────────────────────────── */
+        #login-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #1a3f6f 0%, #2E75B6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        #login-overlay.hidden { display: none; }
+
+        .login-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .login-logo {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .login-box h2 {
+            color: #1a3f6f;
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .login-box p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .login-box input[type="password"]:focus {
+            border-color: #2E75B6;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 14px;
+            background: #2E75B6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .login-box button:hover { background: #1a3f6f; }
+
+        .login-error {
+            color: #dc2626;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        .page-wrapper.locked { display: none; }
+
+        /* ── Logout button in header ─────────────────────────────── */
+        .btn-logout {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background 0.2s;
+        }
+        .btn-logout:hover { background: rgba(255,255,255,0.15); }
+
+        /* ── Responsive ──────────────────────────────────────────── */
+        @media (max-width: 900px) {
+            .hide-mobile { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .header { flex-direction: column; }
+            .detail-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Login overlay — shown until correct password is entered -->
+<div id="login-overlay">
+    <div class="login-box">
+        <div class="login-logo">🧹</div>
+        <h2>LPD&amp;M Secretary Desk</h2>
+        <p>Enter your admin password to continue</p>
+        <input type="password" id="login-password" placeholder="Password" autocomplete="current-password">
+        <button onclick="attemptLogin()">Sign In</button>
+        <div class="login-error" id="login-error"></div>
+    </div>
+</div>
+
+<div class="page-wrapper locked" id="main-content">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-badge">
+                🧹 LPD&amp;M Cleaning Solutions
+            </div>
+            <h1>Secretary Desk</h1>
+            <p>Live inquiry tracking &amp; workflow control</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <button class="btn btn-primary" onclick="fetchQuotes()">🔄 Refresh Entries</button>
+            <button class="btn-logout" onclick="logout()">Sign Out</button>
+        </div>
+    </header>
+
+    <!-- BUG-11 FIX: Stats bar — counts at a glance for the secretary -->
+    <div class="stats-bar">
+        <div class="stat-card stat-total">
+            <div class="stat-value" id="stat-total">—</div>
+            <div class="stat-label">Total Enquiries</div>
+        </div>
+        <div class="stat-card stat-new">
+            <div class="stat-value" id="stat-new">—</div>
+            <div class="stat-label">New — Need Response</div>
+        </div>
+        <div class="stat-card stat-responded">
+            <div class="stat-value" id="stat-responded">—</div>
+            <div class="stat-label">Responded</div>
+        </div>
+    </div>
+
+    <!-- BUG-09 + BUG-10 FIX: Loading and error banners -->
+    <div id="status-banner" class="status-banner"></div>
+
+    <!-- Table card -->
+    <div class="table-card">
+        <div class="table-toolbar">
+            <h2>Quote Submissions</h2>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all"      onclick="setFilter('all',this)">All</button>
+                <button class="filter-tab"         data-filter="New"     onclick="setFilter('New',this)">New Only</button>
+                <button class="filter-tab"         data-filter="Responded" onclick="setFilter('Responded',this)">Responded</button>
+            </div>
+        </div>
+
+        <div class="table-scroll">
+            <table>
+                <!-- BUG-08 FIX: all 10 required fields now have columns -->
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Received</th>
+                        <th>Client</th>
+                        <th>Contact</th>
+                        <th>Service</th>
+                        <th>Property</th>
+                        <th class="hide-mobile">Preferred Date</th>
+                        <th class="hide-mobile">Referral</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="quotes-table-body"></tbody>
+            </table>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="empty-state" style="display:none;">
+                <div class="empty-icon">📭</div>
+                <p>No enquiries found for this filter.</p>
+            </div>
+        </div>
+    </div>
+
+</div><!-- end page-wrapper -->
+
+
+<!-- Detail Modal — shows all 10 fields for a selected record -->
+<div id="detail-modal" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 id="modal-title">Enquiry Details</h3>
+            <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="detail-grid" id="modal-body-grid">
+                <!-- Populated dynamically by openDetail() -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    /* ──────────────────────────────────────────────────────────────────────
+       Configuration — matches critical rule: do NOT change API paths
+       ────────────────────────────────────────────────────────────────────── */
+    /* ──────────────────────────────────────────────────────────────────────
+       PASSWORD PROTECTION
+       Hash = SHA-256 of the admin password.
+       To change the password: generate a new SHA-256 hash and replace below.
+       Online tool: https://emn178.github.io/online-tools/sha256.html
+       ────────────────────────────────────────────────────────────────────── */
+    const ADMIN_HASH = "3552421eacd83dce8216536770b4f3b0c08417f906e5b1c69ee88cc4068f5e0d";
+    const SESSION_KEY = "lpdm_auth";
+
+    async function sha256(str) {
+        const buf  = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+        return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+    }
+
+    async function attemptLogin() {
+        const input = document.getElementById("login-password");
+        const error = document.getElementById("login-error");
+        const hash  = await sha256(input.value);
+        if (hash === ADMIN_HASH) {
+            sessionStorage.setItem(SESSION_KEY, "1");
+            document.getElementById("login-overlay").classList.add("hidden");
+            document.getElementById("main-content").classList.remove("locked");
+            fetchQuotes();
+        } else {
+            error.textContent = "Incorrect password. Please try again.";
+            input.value = "";
+            input.focus();
+        }
+    }
+
+    function logout() {
+        sessionStorage.removeItem(SESSION_KEY);
+        location.reload();
+    }
+
+    // Allow pressing Enter in the password field
+    document.getElementById("login-password").addEventListener("keydown", e => {
+        if (e.key === "Enter") attemptLogin();
+    });
+
+    // If already logged in this session, skip the login screen and load data
+    (function checkSession() {
+        if (sessionStorage.getItem(SESSION_KEY) === "1") {
+            document.getElementById("login-overlay").classList.add("hidden");
+            document.getElementById("main-content").classList.remove("locked");
+            window.addEventListener("DOMContentLoaded", fetchQuotes);
+        }
+    })();
+
+    const API_BASE = "https://YOUR_API_GATEWAY_ID.execute-api.eu-west-2.amazonaws.com/v1";
+
+    /* ──────────────────────────────────────────────────────────────────────
+       State
+       ────────────────────────────────────────────────────────────────────── */
+    let allQuotes  = [];   // full dataset from API
+    let filterMode = "all"; // "all" | "New" | "Responded"
+
+
+    /* ──────────────────────────────────────────────────────────────────────
+       Helpers
+       ────────────────────────────────────────────────────────────────────── */
+    function showBanner(type, message) {
+        const el = document.getElementById("status-banner");
+        el.className = `status-banner visible ${type}`;
+        el.innerHTML = message;
+    }
+
+    function hideBanner() {
+        const el = document.getElementById("status-banner");
+        el.className = "status-banner";
+        el.innerHTML = "";
+    }
+
+    function formatDate(isoString) {
+        if (!isoString) return "—";
+        try {
+            return new Date(isoString).toLocaleString("en-GB", {
+                day:   "2-digit", month: "short", year:   "numeric",
+                hour:  "2-digit", minute: "2-digit"
+            });
+        } catch { return isoString; }
+    }
+
+    function formatPreferredDate(dateStr) {
+        if (!dateStr) return "—";
+        try {
+            return new Date(dateStr).toLocaleDateString("en-GB", {
+                day: "2-digit", month: "long", year: "numeric"
+            });
+        } catch { return dateStr; }
+    }
+
+    function escapeHTML(str) {
+        if (str == null) return "—";
+        return String(str)
+            .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+            .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    /* ──────────────────────────────────────────────────────────────────────
+       BUG-11 FIX: update stats bar
+       ────────────────────────────────────────────────────────────────────── */
+    function updateStats(quotes) {
+        const total     = quotes.length;
+        const newCount  = quotes.filter(q => q.status === "New").length;
+        const respCount = quotes.filter(q => q.status === "Responded").length;
+
+        document.getElementById("stat-total").textContent     = total;
+        document.getElementById("stat-new").textContent       = newCount;
+        document.getElementById("stat-responded").textContent = respCount;
+    }
+
+
+    /* ──────────────────────────────────────────────────────────────────────
+       Filter control
+       ────────────────────────────────────────────────────────────────────── */
+    function setFilter(mode, tabEl) {
+        filterMode = mode;
+        document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+        tabEl.classList.add("active");
+        renderTable(allQuotes);
+    }
+
+
+    /* ──────────────────────────────────────────────────────────────────────
+       BUG-10 FIX: fetch with loading state
+       BUG-09 FIX: visible error state on network failure
+       ────────────────────────────────────────────────────────────────────── */
+    async function fetchQuotes() {
+        showBanner("loading", "⏳&nbsp; Loading entries…");
+
+        try {
+            const res = await fetch(`${API_BASE}/admin/quotes`);
+
+            if (!res.ok) {
+                throw new Error(`Server returned HTTP ${res.status}`);
+            }
+
+            allQuotes = await res.json();
+            hideBanner();
+            updateStats(allQuotes);
+            renderTable(allQuotes);
+
+        } catch (err) {
+            showBanner(
+                "error",
+                `⚠️&nbsp; <strong>Could not load entries.</strong> ` +
+                `Make sure the API Gateway is reachable at <code>https://YOUR_API_GATEWAY_ID.execute-api.eu-west-2.amazonaws.com</code>. ` +
+                `<br>Error: ${escapeHTML(err.message)}`
+            );
+            console.error("[LPD&M Dashboard]", err);
+        }
+    }
+
+
+    /* ──────────────────────────────────────────────────────────────────────
+       BUG-08 FIX: render all 10 required fields in the table
+       ────────────────────────────────────────────────────────────────────── */
+    function renderTable(quotes) {
+        const tbody      = document.getElementById("quotes-table-body");
+        const emptyState = document.getElementById("empty-state");
+
+        // Apply active filter
+        const visible = filterMode === "all"
+            ? quotes
+            : quotes.filter(q => q.status === filterMode);
+
+        tbody.innerHTML = "";
+
+        if (visible.length === 0) {
+            emptyState.style.display = "block";
+            return;
+        }
+        emptyState.style.display = "none";
+
+        visible.forEach(quote => {
+            const isNew = quote.status === "New";
+
+            const statusBadge = isNew
+                ? `<span class="badge badge-new">📩 New</span>`
+                : `<span class="badge badge-responded">✅ Done</span>`;
+
+            const respondBtn = isNew
+                ? `<button class="action-respond"
+                           id="btn-respond-${quote.id}"
+                           onclick="markResponded('${quote.id}')"
+                           aria-label="Mark enquiry #${quote.id} as responded">
+                       Mark Done
+                   </button>`
+                : `<span class="done-label">Handled</span>`;
+
+            const row = document.createElement("tr");
+            row.id = `row-${quote.id}`;
+
+            row.innerHTML = `
+                <td class="cell-id">#${escapeHTML(quote.id)}</td>
+
+                <td>
+                    <span style="font-size:.8rem; color:var(--text-secondary);">
+                        ${formatDate(quote.submitted_at)}
+                    </span>
+                </td>
+
+                <td>
+                    <div class="cell-name">${escapeHTML(quote.name)}</div>
+                    <div class="cell-sub">📏 ${escapeHTML(quote.property_size) || "—"}</div>
+                </td>
+
+                <td>
+                    <a class="email-link"
+                       href="mailto:${escapeHTML(quote.email)}?subject=LPD%26M%20Quote%20Follow-up"
+                       title="Email ${escapeHTML(quote.name)}">
+                        ${escapeHTML(quote.email)}
+                    </a>
+                    <div class="cell-sub">📞 ${escapeHTML(quote.phone)}</div>
+                </td>
+
+                <td>
+                    <span class="service-tag">${escapeHTML(quote.service)}</span>
+                </td>
+
+                <td>
+                    <div style="font-size:.85rem;">${escapeHTML(quote.property_size) || "—"}</div>
+                </td>
+
+                <td class="hide-mobile">
+                    <div style="font-size:.82rem; color:var(--text-secondary);">
+                        ${formatPreferredDate(quote.preferred_date)}
+                    </div>
+                </td>
+
+                <td class="hide-mobile">
+                    <div style="font-size:.82rem; color:var(--text-secondary);">
+                        ${escapeHTML(quote.referral_source) || "—"}
+                    </div>
+                </td>
+
+                <td>${statusBadge}</td>
+
+                <td style="white-space:nowrap;">
+                    ${respondBtn}
+                    <button class="btn-detail"
+                            onclick="openDetail('${quote.id}')"
+                            aria-label="View full details for enquiry #${quote.id}">
+                        View
+                    </button>
+                </td>
+            `;
+
+            tbody.appendChild(row);
+        });
+    }
+
+
+    /* ──────────────────────────────────────────────────────────────────────
+       BUG-07 FIX: calls POST /v1/admin/quotes/{id}/respond exactly as
+       the original Dashboard.html expected — now the backend has this route.
+       ────────────────────────────────────────────────────────────────────── */
+    async function markResponded(id) {
+        if (!confirm(`Mark enquiry #${id} as Responded?`)) return;
+
+        const btn = document.getElementById(`btn-respond-${id}`);
+        if (btn) { btn.disabled = true; btn.textContent = "Saving…"; }
+
+        try {
+            const res = await fetch(`${API_BASE}/admin/quotes/${id}/respond`, {
+                method: "POST"
+            });
+
+            if (!res.ok) {
+                const body = await res.json().catch(() => ({}));
+                throw new Error(body.detail || `HTTP ${res.status}`);
+            }
+
+            // Patch local data so we don't need a full round-trip
+            allQuotes = allQuotes.map(q =>
+                q.id === id ? { ...q, status: "Responded" } : q
+            );
+            updateStats(allQuotes);
+            renderTable(allQuotes);
+
+        } catch (err) {
+            alert(`Could not update enquiry #${id}.\n\nError: ${err.message}`);
+            if (btn) { btn.disabled = false; btn.textContent = "Mark Done"; }
+            console.error("[LPD&M Dashboard] markResponded:", err);
+        }
+    }
+
+
+    /* ──────────────────────────────────────────────────────────────────────
+       Detail modal — shows all 10 fields for a single record
+       ────────────────────────────────────────────────────────────────────── */
+    function openDetail(id) {
+        const quote = allQuotes.find(q => q.id === id);
+        if (!quote) return;
+
+        document.getElementById("modal-title").textContent = `Enquiry #${id} — ${quote.name}`;
+
+        const grid = document.getElementById("modal-body-grid");
+        grid.innerHTML = `
+            <div class="detail-item">
+                <span class="detail-label">Client Name</span>
+                <span class="detail-value">${escapeHTML(quote.name)}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Status</span>
+                <span class="detail-value">
+                    ${quote.status === "New"
+                        ? `<span class="badge badge-new">📩 New</span>`
+                        : `<span class="badge badge-responded">✅ Responded</span>`}
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Email Address</span>
+                <span class="detail-value">
+                    <a class="email-link"
+                       href="mailto:${escapeHTML(quote.email)}?subject=LPD%26M%20Quote%20Follow-up">
+                        ${escapeHTML(quote.email)}
+                    </a>
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Phone Number</span>
+                <span class="detail-value">
+                    <a href="tel:${escapeHTML(quote.phone)}"
+                       style="color:var(--brand-blue); text-decoration:none; font-weight:500;">
+                        ${escapeHTML(quote.phone)}
+                    </a>
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Service Required</span>
+                <span class="detail-value">
+                    <span class="service-tag">${escapeHTML(quote.service)}</span>
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Property Size</span>
+                <span class="detail-value">${escapeHTML(quote.property_size) || "—"}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Preferred Date</span>
+                <span class="detail-value">${formatPreferredDate(quote.preferred_date)}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Referral Source</span>
+                <span class="detail-value">${escapeHTML(quote.referral_source) || "—"}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Submitted At</span>
+                <span class="detail-value">${formatDate(quote.submitted_at)}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">&nbsp;</span>
+                <span class="detail-value"></span>
+            </div>
+            <div class="detail-item full-width">
+                <span class="detail-label">Message / Additional Details</span>
+                <div class="detail-value message-body">${escapeHTML(quote.message) || "No message provided."}</div>
+            </div>
+        `;
+
+        document.getElementById("detail-modal").classList.add("visible");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        document.getElementById("detail-modal").classList.remove("visible");
+        document.body.style.overflow = "";
+    }
+
+    function closeModalOnOverlay(event) {
+        // Only close if user clicks the dark backdrop, not the modal itself
+        if (event.target === document.getElementById("detail-modal")) {
+            closeModal();
+        }
+    }
+
+    // Keyboard: Escape closes modal
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") closeModal();
+    });
+
+
+    /* ──────────────────────────────────────────────────────────────────────
+       Boot
+       ────────────────────────────────────────────────────────────────────── */
+    // fetchQuotes is called after successful login, not on raw page load.
+</script>
+
+</body>
+</html>

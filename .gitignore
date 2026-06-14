@@ -1,0 +1,34 @@
+# ── Lambda build artefacts (large, generated — never commit these) ──
+lpdm_lambda_pkg/
+lpdm_lambda.zip
+*.zip
+
+# ── Database (contains real customer data) ──
+*.db
+*.sqlite
+
+# ── Python ──
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# ── Old backup folders ──
+files/
+files.zip 2/
+files.zip 3/
+
+# ── Editor & OS files ──
+*.code-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Claude Code internal files ──
+.claude/
+
+# ── AWS credentials (should NEVER be committed) ──
+.aws/
+credentials

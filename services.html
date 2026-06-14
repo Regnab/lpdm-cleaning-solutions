@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional cleaning services in Enfield and North London — end of tenancy, deep cleaning, post construction, office, and home cleaning. Transparent pricing, fully insured, COSHH compliant.">
+    <meta name="keywords" content="end of tenancy cleaning Enfield, deep cleaning London, office cleaning North London, post construction cleaning, home cleaning Enfield, professional cleaners">
+    <title>Our Services | LPD&M Cleaning Solutions — Enfield &amp; North London</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="./images/logo.jpeg">
+
+    <!-- Preconnect for faster CDN loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Our Services | LPD&M Cleaning Solutions — Enfield &amp; North London">
+    <meta property="og:description" content="Professional cleaning services in Enfield and North London — end of tenancy, deep cleaning, post construction, office, and home cleaning. Transparent pricing, fully insured.">
+    <meta property="og:image" content="./images/logo.jpeg">
+    <meta property="og:url" content="https://lpdmcleaning.co.uk/services.html">
+    <meta property="og:site_name" content="LPD&M Cleaning Solutions">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Services | LPD&M Cleaning Solutions">
+    <meta name="twitter:description" content="End of tenancy, deep cleaning, office cleaning, home cleaning & more in Enfield, North London.">
+    <meta name="twitter:image" content="./images/logo.jpeg">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+         Exact structure from index.html / about.html.
+         "Services" carries the active class.
+         ============================================================ -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./images/logo.jpeg" alt="LPD&M Cleaning Solutions Logo" class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="quote.html" class="btn-nav">Get Free Quote</a></li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         PAGE HERO
+         .hero base class for all visuals + reduced padding via
+         inline style only (padding is a layout property, not a
+         design token — overriding it inline is the zero-new-CSS
+         approach consistent with what the brief permits).
+         ============================================================ -->
+    <section class="hero" style="padding: 72px 0 52px; background-image: linear-gradient(135deg, rgba(46,117,182,0.87) 0%, rgba(20,70,130,0.87) 100%), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&auto=format&fit=crop&q=80'); background-size: cover; background-position: center;">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Our Professional Cleaning Services</h1>
+                <p class="hero-subtitle">Comprehensive Solutions for Homes &amp; Businesses</p>
+                <p class="hero-description">
+                    From end of tenancy deep cleans to ongoing office contracts — transparent pricing, trained professionals, and a 100% satisfaction guarantee on every job.
+                </p>
+                <div class="hero-buttons">
+                    <a href="quote.html" class="btn btn-primary">Get Your Free Quote</a>
+                    <a href="tel:+447495687854" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Fully Insured</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>COSHH Compliant</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-star"></i>
+                        <span>100% Satisfaction Guarantee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 1 — SERVICE QUICK NAVIGATION
+         Purpose: lets users jump directly to the service they need.
+         Classes: .why-choose-us (white bg, 80px padding)
+                  .features-grid (auto-fit 3-col grid)
+                  .feature-item + .feature-icon (icon cards)
+         No new CSS. All classes exist verbatim in styles.css.
+         ============================================================ -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Find Your Service</h2>
+                <p>Jump directly to the service you need, or scroll down to explore everything we offer</p>
+            </div>
+            <div class="features-grid">
+
+                <div class="feature-item">
+                    <a href="#end-of-tenancy" style="text-decoration:none; color:inherit;">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>End of Tenancy</h3>
+                        <p>From £140 — deposit-back guarantee standard</p>
+                    </a>
+                </div>
+
+                <div class="feature-item">
+                    <a href="#deep-cleaning" style="text-decoration:none; color:inherit;">
+                        <div class="feature-icon">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <h3>Deep Cleaning</h3>
+                        <p>From £120 — intensive, thorough, top to bottom</p>
+                    </a>
+                </div>
+
+                <div class="feature-item">
+                    <a href="#post-construction" style="text-decoration:none; color:inherit;">
+                        <div class="feature-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>Post Construction</h3>
+                        <p>Custom quote — move-in ready after any build</p>
+                    </a>
+                </div>
+
+                <div class="feature-item">
+                    <a href="#office-cleaning" style="text-decoration:none; color:inherit;">
+                        <div class="feature-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>Office Cleaning</h3>
+                        <p>From £18/hr — daily, weekly, or monthly contracts</p>
+                    </a>
+                </div>
+
+                <div class="feature-item">
+                    <a href="#home-cleaning" style="text-decoration:none; color:inherit;">
+                        <div class="feature-icon">
+                            <i class="fas fa-house-user"></i>
+                        </div>
+                        <h3>Home Cleaning</h3>
+                        <p>From £100 — regular or one-off residential cleans</p>
+                    </a>
+                </div>
+
+                <div class="feature-item">
+                    <a href="#add-ons" style="text-decoration:none; color:inherit;">
+                        <div class="feature-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h3>Add-On Services</h3>
+                        <p>Carpets, ovens, windows, and more</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICE 1 — END OF TENANCY CLEANING
+         id="end-of-tenancy" for anchor navigation
+         Classes: .services-overview (light-grey bg, 80px padding)
+                  .areas-content (1fr 1fr grid, responsive to 1-col)
+                  .areas-text, .service-image, .service-price,
+                  .price-note, .areas-list, .pricing-disclaimer
+         Image: left column. Text: right column.
+         ============================================================ -->
+    <section class="services-overview" id="end-of-tenancy">
+        <div class="container">
+            <div class="areas-content">
+
+                <!-- Image — left column -->
+                <div class="service-image" style="height:420px; border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12);">
+                    <img
+                        src="./images/ETC.jpg"
+                        alt="Professional end of tenancy cleaning in an Enfield property"
+                        loading="lazy"
+                        style="width:100%; height:100%; object-fit:cover;"
+                    >
+                </div>
+
+                <!-- Text — right column -->
+                <div class="areas-text">
+                    <div class="section-header" style="text-align:left; margin-bottom:1.5rem;">
+                        <h2>End of Tenancy Cleaning</h2>
+                    </div>
+
+                    <p>
+                        Our most popular service — a comprehensive deep clean specifically designed to satisfy letting agents and landlords so you receive your full deposit back. We follow a meticulous room-by-room checklist approved by leading Enfield letting agencies.
+                    </p>
+                    <p>
+                        Perfect for tenants moving out, landlords preparing for new occupants, and letting agents turning properties between tenancies.
+                    </p>
+
+                    <!-- What's included -->
+                    <ul class="areas-list" style="grid-template-columns: 1fr 1fr; margin: 1.5rem 0;">
+                        <li><i class="fas fa-check-circle"></i> All rooms deep cleaned</li>
+                        <li><i class="fas fa-check-circle"></i> Kitchen &amp; appliances</li>
+                        <li><i class="fas fa-check-circle"></i> Bathroom sanitised</li>
+                        <li><i class="fas fa-check-circle"></i> Oven deep clean included</li>
+                        <li><i class="fas fa-check-circle"></i> Skirting boards &amp; frames</li>
+                        <li><i class="fas fa-check-circle"></i> Window sills &amp; frames</li>
+                        <li><i class="fas fa-check-circle"></i> Cupboards inside &amp; out</li>
+                        <li><i class="fas fa-check-circle"></i> Carpet vacuuming</li>
+                    </ul>
+
+                    <!-- Pricing -->
+                    <div class="service-price">From £140</div>
+                    <p class="price-note">Studio / 1 Bed: £140 &nbsp;·&nbsp; 2 Bed: £190 &nbsp;·&nbsp; 3 Bed: £250</p>
+
+                    <a href="quote.html" class="btn btn-primary">Get an Exact Quote</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICE 2 — DEEP CLEANING
+         id="deep-cleaning" for anchor navigation
+         Classes: .why-choose-us (white bg, 80px padding)
+                  .areas-content — image RIGHT via inline dir:rtl trick
+                  (same technique used in about.html story sections,
+                  no new CSS needed)
+         ============================================================ -->
+    <section class="why-choose-us" id="deep-cleaning">
+        <div class="container">
+            <div class="areas-content" style="direction:rtl;">
+
+                <!-- Image — right column (rtl flips visual order) -->
+                <div class="service-image" style="height:420px; border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); direction:ltr;">
+                    <img
+                        src="./images/DCS.jpg"
+                        alt="Deep cleaning specialist working on kitchen surfaces"
+                        loading="lazy"
+                        style="width:100%; height:100%; object-fit:cover;"
+                    >
+                </div>
+
+                <!-- Text — left column -->
+                <div class="areas-text" style="direction:ltr;">
+                    <div class="section-header" style="text-align:left; margin-bottom:1.5rem;">
+                        <h2>Deep Cleaning</h2>
+                    </div>
+
+                    <p>
+                        When a standard clean isn't enough, our deep cleaning service provides an intensive, top-to-bottom treatment for every surface, corner, and fixture in your home. Ideal for spring cleaning, pre-sale preparation, or properties that haven't been professionally cleaned recently.
+                    </p>
+                    <p>
+                        We pay particular attention to accumulated grime in hard-to-reach places — behind appliances, inside cupboards, along grout lines, and underneath furniture.
+                    </p>
+
+                    <ul class="areas-list" style="grid-template-columns: 1fr 1fr; margin: 1.5rem 0;">
+                        <li><i class="fas fa-check-circle"></i> Full kitchen deep clean</li>
+                        <li><i class="fas fa-check-circle"></i> Bathroom &amp; wet room scrub</li>
+                        <li><i class="fas fa-check-circle"></i> Behind &amp; under appliances</li>
+                        <li><i class="fas fa-check-circle"></i> Inside cupboards &amp; wardrobes</li>
+                        <li><i class="fas fa-check-circle"></i> Walls, switches &amp; sockets</li>
+                        <li><i class="fas fa-check-circle"></i> All floors &amp; skirting boards</li>
+                        <li><i class="fas fa-check-circle"></i> Light fittings &amp; fixtures</li>
+                        <li><i class="fas fa-check-circle"></i> Door frames &amp; handles</li>
+                    </ul>
+
+                    <div class="service-price">From £120</div>
+                    <p class="price-note">*3 hour minimum. Final quote based on property size &amp; condition.</p>
+
+                    <a href="quote.html" class="btn btn-primary">Get an Exact Quote</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICE 3 — POST CONSTRUCTION CLEANING
+         id="post-construction" for anchor navigation
+         Classes: .services-overview (light-grey bg)
+                  .areas-content — image LEFT (default column order)
+         ============================================================ -->
+    <section class="services-overview" id="post-construction">
+        <div class="container">
+            <div class="areas-content">
+
+                <!-- Image — left column -->
+                <div class="service-image" style="height:420px; border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12);">
+                    <img
+                        src="./images/PCS.jpg"
+                        alt="Post construction clean — dust removal after renovation in North London"
+                        loading="lazy"
+                        style="width:100%; height:100%; object-fit:cover;"
+                    >
+                </div>
+
+                <!-- Text — right column -->
+                <div class="areas-text">
+                    <div class="section-header" style="text-align:left; margin-bottom:1.5rem;">
+                        <h2>Post Construction Cleaning</h2>
+                    </div>
+
+                    <p>
+                        Building work, renovations, and refurbishments leave behind fine dust, debris, and residue that standard cleaning can't address. Our post construction cleaning service is specifically equipped with the tools and techniques to restore your property to a move-in ready condition.
+                    </p>
+                    <p>
+                        We work with builders, developers, and homeowners across North London — adapting to any project size, from a single bathroom renovation to a full-house rebuild.
+                    </p>
+
+                    <ul class="areas-list" style="grid-template-columns: 1fr 1fr; margin: 1.5rem 0;">
+                        <li><i class="fas fa-check-circle"></i> Fine construction dust removal</li>
+                        <li><i class="fas fa-check-circle"></i> Paint splatter &amp; residue</li>
+                        <li><i class="fas fa-check-circle"></i> Debris &amp; material clearance</li>
+                        <li><i class="fas fa-check-circle"></i> All floors &amp; surfaces</li>
+                        <li><i class="fas fa-check-circle"></i> Window &amp; glass cleaning</li>
+                        <li><i class="fas fa-check-circle"></i> Sanitisation of all areas</li>
+                        <li><i class="fas fa-check-circle"></i> Kitchen &amp; bathroom fit-out clean</li>
+                        <li><i class="fas fa-check-circle"></i> Final inspection walkthrough</li>
+                    </ul>
+
+                    <div class="service-price">Custom Quote</div>
+                    <p class="price-note">*Priced by project scope and site size. Contact us for a free assessment.</p>
+
+                    <a href="quote.html" class="btn btn-primary">Request a Project Quote</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICE 4 — OFFICE CLEANING
+         id="office-cleaning" for anchor navigation
+         Classes: .service-areas (grey→white gradient, 80px padding)
+                  .areas-content — image RIGHT via inline dir:rtl
+         ============================================================ -->
+    <section class="service-areas" id="office-cleaning">
+        <div class="container">
+            <div class="areas-content" style="direction:rtl;">
+
+                <!-- Image — right column -->
+                <div class="service-image" style="height:420px; border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); direction:ltr;">
+                    <img
+                        src="./images/OCS.jpg"
+                        alt="Professional office cleaning service in a North London commercial space"
+                        loading="lazy"
+                        style="width:100%; height:100%; object-fit:cover;"
+                    >
+                </div>
+
+                <!-- Text — left column -->
+                <div class="areas-text" style="direction:ltr;">
+                    <div class="section-header" style="text-align:left; margin-bottom:1.5rem;">
+                        <h2>Office Cleaning</h2>
+                    </div>
+
+                    <p>
+                        A clean, organised workspace directly impacts employee wellbeing and the impression you make on clients. Our commercial cleaning service is designed around your schedule — early morning, evening, or weekend — so your team arrives to a spotless environment every day without disruption.
+                    </p>
+                    <p>
+                        We offer flexible contracts for businesses of all sizes, from single-office suites to multi-floor commercial premises across Enfield and North London.
+                    </p>
+
+                    <ul class="areas-list" style="grid-template-columns: 1fr 1fr; margin: 1.5rem 0;">
+                        <li><i class="fas fa-check-circle"></i> Desk &amp; workstation cleaning</li>
+                        <li><i class="fas fa-check-circle"></i> Kitchen &amp; staff areas</li>
+                        <li><i class="fas fa-check-circle"></i> Toilet &amp; bathroom sanitisation</li>
+                        <li><i class="fas fa-check-circle"></i> Floor vacuuming &amp; mopping</li>
+                        <li><i class="fas fa-check-circle"></i> Bin emptying &amp; waste removal</li>
+                        <li><i class="fas fa-check-circle"></i> Reception &amp; communal areas</li>
+                        <li><i class="fas fa-check-circle"></i> High-touch surface disinfection</li>
+                        <li><i class="fas fa-check-circle"></i> Window sills &amp; internal glass</li>
+                    </ul>
+
+                    <div class="service-price">From £18/hour</div>
+                    <p class="price-note">*Daily, weekly, and monthly contracts available. Volume discounts for larger premises.</p>
+
+                    <a href="quote.html" class="btn btn-primary">Get a Business Quote</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICE 5 — HOME CLEANING
+         id="home-cleaning" for anchor navigation
+         Classes: .why-choose-us (white bg, 80px padding)
+                  .areas-content — image LEFT (default column order)
+         ============================================================ -->
+    <section class="why-choose-us" id="home-cleaning">
+        <div class="container">
+            <div class="areas-content">
+
+                <!-- Image — left column -->
+                <div class="service-image" style="height:420px; border-radius:12px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12);">
+                    <img
+                        src="./images/HCS.jpg"
+                        alt="LPD&M cleaner maintaining a family home in Enfield"
+                        loading="lazy"
+                        style="width:100%; height:100%; object-fit:cover;"
+                    >
+                </div>
+
+                <!-- Text — right column -->
+                <div class="areas-text">
+                    <div class="section-header" style="text-align:left; margin-bottom:1.5rem;">
+                        <h2>Home Cleaning</h2>
+                    </div>
+
+                    <p>
+                        Life is busy — and keeping your home consistently clean shouldn't add to the stress. Our regular home cleaning service takes care of the weekly or fortnightly maintenance so you can come home to a fresh, tidy space every time.
+                    </p>
+                    <p>
+                        Whether you need a one-off clean before guests arrive or a standing arrangement that runs quietly in the background, we tailor the service to exactly what your home needs.
+                    </p>
+
+                    <ul class="areas-list" style="grid-template-columns: 1fr 1fr; margin: 1.5rem 0;">
+                        <li><i class="fas fa-check-circle"></i> Living room &amp; bedrooms</li>
+                        <li><i class="fas fa-check-circle"></i> Kitchen surfaces &amp; appliances</li>
+                        <li><i class="fas fa-check-circle"></i> Bathroom &amp; toilet sanitisation</li>
+                        <li><i class="fas fa-check-circle"></i> Vacuuming &amp; floor mopping</li>
+                        <li><i class="fas fa-check-circle"></i> Dusting all surfaces</li>
+                        <li><i class="fas fa-check-circle"></i> Hallways &amp; stairs</li>
+                        <li><i class="fas fa-check-circle"></i> Bin emptying</li>
+                        <li><i class="fas fa-check-circle"></i> One-off or recurring frequency</li>
+                    </ul>
+
+                    <div class="service-price">From £100</div>
+                    <p class="price-note">*£100–£180 depending on property size &amp; frequency. Weekly &amp; fortnightly discounts available.</p>
+
+                    <a href="quote.html" class="btn btn-primary">Get a Home Quote</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICE 6 — ADD-ON SERVICES
+         id="add-ons" for anchor navigation
+         Classes: .services-overview (light-grey bg, 80px padding)
+                  .services-grid (auto-fit card grid)
+                  .service-card + .service-card-accent for the CTA card
+                  .service-icon, .service-price, .price-note
+         No image on this section — card grid is the native layout.
+         ============================================================ -->
+    <section class="services-overview" id="add-ons">
+        <div class="container">
+            <div class="section-header">
+                <h2>Add-On Services</h2>
+                <p>Bolt these on to any booking to build the exact clean your property needs</p>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- Add-On 1: Carpet Steam Cleaning -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="./images/CC.jpg"
+                            alt="Professional carpet steam cleaning"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Carpet Steam Cleaning</h3>
+                    <p>Deep extraction of dirt, stains, and allergens from carpets and rugs using professional steam equipment. Leaves carpets fresh and dry within hours.</p>
+                    <div class="service-price">+£40–£80</div>
+                    <p class="price-note">*Based on number of rooms and carpet type.</p>
+                    <a href="quote.html" class="btn btn-primary btn-small">Add to My Quote</a>
+                    <a href="quote.html" class="service-link">Get a Full Quote →</a>
+                </div>
+
+                <!-- Add-On 2: Oven Deep Clean -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="./images/OVC.jpg"
+                            alt="Professional oven deep cleaning service"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Oven Deep Clean</h3>
+                    <p>Full oven strip-down and degrease — racks, doors, seals, and cavity restored to near-new condition. Can be booked standalone or added to any service.</p>
+                    <div class="service-price">+£30</div>
+                    <p class="price-note">*Single oven. Range and double ovens quoted separately.</p>
+                    <a href="quote.html" class="btn btn-primary btn-small">Add to My Quote</a>
+                    <a href="quote.html" class="service-link">Get a Full Quote →</a>
+                </div>
+
+                <!-- Add-On 3: Fridge / Freezer -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="./images/FC.jpg"
+                            alt="Inside fridge and freezer cleaning service"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Fridge &amp; Freezer Cleaning</h3>
+                    <p>Full interior clean of fridge and freezer compartments — shelves, drawers, door seals, and all surfaces sanitised. Ideal to add to end of tenancy bookings.</p>
+                    <div class="service-price">+£15</div>
+                    <p class="price-note">*Per unit. Defrosting must be completed before our visit.</p>
+                    <a href="quote.html" class="btn btn-primary btn-small">Add to My Quote</a>
+                    <a href="quote.html" class="service-link">Get a Full Quote →</a>
+                </div>
+
+                <!-- Add-On 4: Window Cleaning -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="./images/WC.jpg"
+                            alt="Interior and exterior window cleaning service"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <h3>Window Cleaning</h3>
+                    <p>Interior and exterior window cleaning leaving glass streak-free and frames spotless. Ground floor and first floor windows covered. Ideal for move-out cleans.</p>
+                    <div class="service-price">+£25</div>
+                    <p class="price-note">*Interior &amp; exterior included. Above first floor quoted separately.</p>
+                    <a href="quote.html" class="btn btn-primary btn-small">Add to My Quote</a>
+                    <a href="quote.html" class="service-link">Get a Full Quote →</a>
+                </div>
+
+                <!-- Add-On 5: Upholstery Cleaning -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img
+                            src="./images/SC.jpg"
+                            alt="Sofa and upholstery cleaning service"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="service-icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <h3>Upholstery Cleaning</h3>
+                    <p>Deep clean of sofas, armchairs, and fabric furniture using safe, effective extraction methods. Removes odours, stains, and allergens from upholstered surfaces.</p>
+                    <div class="service-price">From +£35</div>
+                    <p class="price-note">*Priced by item type and fabric. Quote provided on request.</p>
+                    <a href="quote.html" class="btn btn-primary btn-small">Add to My Quote</a>
+                    <a href="quote.html" class="service-link">Get a Full Quote →</a>
+                </div>
+
+                <!-- CTA Accent Card -->
+                <div class="service-card service-card-accent">
+                    <div class="service-icon" style="margin-top:2rem;">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Bundle &amp; Save</h3>
+                    <p>Combining add-ons with a main service? Let us build a bespoke package — we always offer the best value when services are booked together.</p>
+                    <ul class="addon-list">
+                        <li>Free, no-obligation quotes</li>
+                        <li>No hidden fees, ever</li>
+                        <li>Flexible scheduling</li>
+                        <li>Same team, every visit</li>
+                    </ul>
+                    <a href="quote.html" class="service-link">Build My Package →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         PRICING TRANSPARENCY DISCLAIMER
+         Classes: .why-choose-us (white bg, 80px padding)
+                  .pricing-disclaimer (accent-left-border card)
+         ============================================================ -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Pricing Promise</h2>
+                <p>Everything you need to know before you commit</p>
+            </div>
+            <div class="features-grid">
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>No Hidden Fees</h3>
+                    <p>Every quote is fully itemised and agreed before we arrive. What you're quoted is what you pay — no surprises on completion.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice-pound"></i>
+                    </div>
+                    <h3>Free, No-Obligation Quotes</h3>
+                    <p>All quotes are free and carry no obligation to proceed. We'll assess your requirements and provide an accurate price before any commitment.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-redo-alt"></i>
+                    </div>
+                    <h3>100% Satisfaction Guarantee</h3>
+                    <p>If any aspect of your clean doesn't meet the agreed standard, we return and put it right — at no cost to you. Your satisfaction is the job completion condition.</p>
+                </div>
+
+            </div>
+
+            <div class="pricing-disclaimer">
+                <p>
+                    <i class="fas fa-info-circle"></i>
+                    <strong>All prices shown are starting estimates.</strong>
+                    Final quotes are personalised to your property's specific size, condition, and requirements. Prices confirmed in writing before every booking — no surprises, ever.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FINAL CTA
+         Exact .final-cta reuse from index.html and about.html.
+         Buttons: quote.html (primary), tel: (secondary), WhatsApp.
+         ============================================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Book Your Clean?</h2>
+                <p>Get a free, no-obligation quote in minutes — and experience the LPD&amp;M standard for yourself</p>
+                <div class="cta-buttons">
+                    <a href="quote.html" class="btn btn-primary btn-large">Get Your Free Quote</a>
+                    <a href="tel:+447495687854" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i> Call +44 7495 687854
+                    </a>
+                    <a href="https://wa.me/447495687854" class="btn btn-whatsapp btn-large" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                </div>
+                <p class="cta-hours">Available Monday – Sunday: 8:00 AM – 8:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER — Exact replica from index.html / about.html
+         ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Column 1: About -->
+                <div class="footer-col">
+                    <h4>LPD&amp;M Cleaning Solutions</h4>
+                    <p>Professional, reliable cleaning services for homes and businesses across Enfield and North London.</p>
+                    <div class="footer-certifications">
+                        <p><i class="fas fa-check-circle"></i> Companies House Registered</p>
+                        <p><i class="fas fa-check-circle"></i> Fully Insured</p>
+                        <p><i class="fas fa-check-circle"></i> COSHH Compliant</p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#end-of-tenancy">End of Tenancy Cleaning</a></li>
+                        <li><a href="services.html#deep-cleaning">Deep Cleaning</a></li>
+                        <li><a href="services.html#office-cleaning">Office Cleaning</a></li>
+                        <li><a href="services.html#home-cleaning">Home Cleaning</a></li>
+                        <li><a href="services.html#post-construction">Post Construction Cleaning</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+447495687854">+44 7495 687854</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:lpdmcleaning@gmail.com">lpdmcleaning@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Enfield, London</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon–Sun: 8:00 AM – 8:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="social-icons">
+                        <!-- TODO: replace with live social profile URLs -->
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 LPD&amp;M Cleaning Solutions Ltd. All Rights Reserved.</p>
+                  <div class="developer-credit">
+    <p>Website designed & developed by <a href="https://your-portfolio-link.com" target="_blank">RegnabTec</a></p>
+</div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/447495687854" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
