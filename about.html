@@ -7,7 +7,7 @@
     <meta name="keywords" content="about LPD&M cleaning, cleaning company Enfield, professional cleaners London, insured cleaning company, COSHH compliant cleaners">
     <title>About Us | LPD&amp;M Cleaning Solutions — Enfield &amp; North London</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="./images/logo.jpeg">
+    <link rel="icon" type="image/png" href="./images/logo_new.png">
 
     <!-- Preconnect for faster CDN loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,13 +18,13 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="About Us | LPD&M Cleaning Solutions — Enfield &amp; North London">
     <meta property="og:description" content="About LPD&M Cleaning Solutions — a trusted, fully insured, and COSHH compliant cleaning company based in Enfield, London. Meet our team and learn our story.">
-    <meta property="og:image" content="./images/logo.jpeg">
+    <meta property="og:image" content="./images/logo_new.png">
     <meta property="og:url" content="https://lpdmcleaning.co.uk/about.html">
     <meta property="og:site_name" content="LPD&M Cleaning Solutions">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About LPD&M Cleaning Solutions — Enfield">
     <meta name="twitter:description" content="Meet the team behind LPD&M — fully insured, COSHH compliant, Companies House registered cleaning professionals.">
-    <meta name="twitter:image" content="./images/logo.jpeg">
+    <meta name="twitter:image" content="./images/logo_new.png">
 
     <link rel="stylesheet" href="styles.css">
 
@@ -166,7 +166,7 @@
             flex-shrink: 0;
         }
 
-        /* Team card grid — mirrors testimonials-grid structure */
+        /* Team card grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -175,45 +175,52 @@
 
         .team-card {
             background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
+            border-radius: 16px;
+            overflow: visible;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             text-align: center;
             transition: all 0.3s ease;
+            padding-top: 2.5rem;
         }
 
         .team-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.13);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
         }
 
+        /* Round circular photo placeholder */
         .team-card__photo {
-            width: 100%;
-            height: 240px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
             overflow: hidden;
+            margin: 0 auto 0;
+            border: 4px solid var(--primary-blue);
+            box-shadow: 0 4px 18px rgba(46, 117, 182, 0.25);
             background-color: var(--light-grey);
+            flex-shrink: 0;
         }
 
         .team-card__photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center;
+            object-position: center 20%;
             display: block;
         }
 
-        /* Placeholder avatar when photo not yet supplied */
+        /* Placeholder avatar when photo not supplied */
         .team-card__photo--placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
+            font-size: 4rem;
             color: var(--primary-blue);
-            opacity: 0.25;
+            opacity: 0.3;
         }
 
         .team-card__body {
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem 1.8rem;
         }
 
         .team-card__name {
@@ -290,7 +297,8 @@
             }
 
             .team-card__photo {
-                height: 200px;
+                width: 130px;
+                height: 130px;
             }
         }
     </style>
@@ -307,7 +315,7 @@
             <div class="nav-wrapper">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="./images/logo.jpeg" alt="LPD&M Cleaning Solutions Logo" class="logo-img">
+                        <img src="./images/logo_new.png" alt="LPD&M Cleaning Solutions Logo" class="logo-img">
                     </a>
                 </div>
                 <ul class="nav-menu">
@@ -574,7 +582,7 @@
                             Recommended crop: head & shoulders, 4:3 or 1:1, 600px min width.
                         -->
                         <img
-                            src="./assets/images/team-mindy.jpg"
+                            src="./images/mindy.jpg"
                             alt="Mindy — Owner and Person with Significant Control, LPD&M Cleaning Solutions"
                             loading="lazy"
                             onerror="this.parentElement.classList.add('team-card__photo--placeholder'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user-circle\'></i>';"
@@ -591,7 +599,7 @@
                 <div class="team-card">
                     <div class="team-card__photo">
                         <img
-                            src="./assets/images/team-michael.jpg"
+                            src="./images/michael.jpg"
                             alt="Michael — Company Director, LPD&M Cleaning Solutions"
                             loading="lazy"
                             onerror="this.parentElement.classList.add('team-card__photo--placeholder'); this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-user-circle\'></i>';"
