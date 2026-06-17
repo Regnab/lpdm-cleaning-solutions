@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LPD&M Rental Services — premium tables, chairs, and event furniture for hire across Enfield and North London. Coming soon.">
+    <meta name="keywords" content="event furniture hire Enfield, table chair rental London, event rental North London, LPD&M rentals">
+    <title>Rental Services — Coming Soon | LPD&M Cleaning Solutions</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/logo_new.png">
+
+    <!-- Preconnect for faster CDN loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rental Services — Coming Soon | LPD&M Cleaning Solutions">
+    <meta property="og:description" content="Premium tables, chairs, and event furniture for hire across Enfield and North London. Launching soon.">
+    <meta property="og:image" content="./images/logo_new.png">
+    <meta property="og:url" content="https://lpdmcleaning.co.uk/rental.html">
+    <meta property="og:site_name" content="LPD&M Cleaning Solutions">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .rental-hero {
+            min-height: 80vh;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a3f6f 50%, var(--accent-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 1.5rem 4rem;
+        }
+
+        .rental-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&auto=format&fit=crop&q=60') center/cover no-repeat;
+            opacity: 0.12;
+        }
+
+        .rental-hero__content {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .rental-hero__badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .rental-hero__title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .rental-hero__title span {
+            color: var(--accent-green);
+        }
+
+        .rental-hero__description {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .rental-hero__cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* What's coming section */
+        .rental-preview {
+            padding: 5rem 0;
+            background: var(--light-grey, #f8f9fa);
+        }
+
+        .rental-preview__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .rental-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            border-top: 4px solid var(--primary-blue);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .rental-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 28px rgba(46,117,182,0.15);
+        }
+
+        .rental-item__icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+
+        .rental-item__icon i {
+            font-size: 1.6rem;
+            color: #fff;
+        }
+
+        .rental-item h3 {
+            color: var(--text-dark, #1e293b);
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .rental-item p {
+            color: var(--text-light, #64748b);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Interest form section */
+        .rental-interest {
+            padding: 5rem 0;
+        }
+
+        .rental-interest__inner {
+            max-width: 560px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .rental-interest__form {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .rental-interest__form input[type="email"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 0.85rem 1.1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark, #1e293b);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .rental-interest__form input[type="email"]:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .rental-interest__note {
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            color: var(--text-light, #64748b);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./images/logo_new.png" alt="LPD&M Cleaning Solutions Logo" class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="quote.html" class="btn-nav">Get Free Quote</a></li>
+                </ul>
+                <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="rental-hero">
+        <div class="rental-hero__content">
+            <span class="rental-hero__badge">Coming Soon</span>
+            <h1 class="rental-hero__title">
+                LPD&amp;M Rental Services<br>
+                <span>— Coming Soon —</span>
+            </h1>
+            <p class="rental-hero__description">
+                We are expanding beyond cleaning. LPD&amp;M will soon offer premium tables, chairs, and event furniture for hire — perfect for weddings, birthday parties, corporate events, and community celebrations across Enfield and North London.
+            </p>
+            <div class="rental-hero__cta">
+                <a href="contact.html" class="btn btn-primary">Register Your Interest</a>
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Coming -->
+    <section class="rental-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We'll Be Offering</h2>
+                <p>High-quality event furniture delivered and collected across North London</p>
+            </div>
+            <div class="rental-preview__grid">
+                <div class="rental-item">
+                    <div class="rental-item__icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <h3>Chairs</h3>
+                    <p>Elegant banquet, folding, and Chiavari chairs suitable for any event style or occasion.</p>
+                </div>
+                <div class="rental-item">
+                    <div class="rental-item__icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Tables</h3>
+                    <p>Round, rectangular, and cocktail tables available in a range of sizes for any venue or guest count.</p>
+                </div>
+                <div class="rental-item">
+                    <div class="rental-item__icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3>Event Packages</h3>
+                    <p>Bundled table and chair sets with flexible hire periods — ideal for parties, weddings, and corporate functions.</p>
+                </div>
+                <div class="rental-item">
+                    <div class="rental-item__icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Delivery & Collection</h3>
+                    <p>Hassle-free delivery, setup, and collection across Enfield and the surrounding North London area.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register Interest -->
+    <section class="rental-interest">
+        <div class="container">
+            <div class="rental-interest__inner">
+                <div class="section-header">
+                    <h2>Be the First to Know</h2>
+                    <p>Leave your contact details and we'll notify you as soon as our rental service launches — with an exclusive early-bird offer.</p>
+                </div>
+                <div class="rental-interest__form">
+                    <input type="email" placeholder="Your email address" aria-label="Email address">
+                    <a href="contact.html?ref=rental" class="btn btn-primary">Notify Me</a>
+                </div>
+                <p class="rental-interest__note">Or call us directly on <a href="tel:+447495687854">+44 7495 687854</a> to register your interest.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: About -->
+                <div class="footer-col">
+                    <h4>LPD&M Cleaning Solutions</h4>
+                    <p>Professional, reliable cleaning services for homes and businesses across Enfield and North London.</p>
+                    <div class="footer-certifications">
+                        <p><i class="fas fa-check-circle"></i> Companies House Registered</p>
+                        <p><i class="fas fa-check-circle"></i> Fully Insured</p>
+                        <p><i class="fas fa-check-circle"></i> COSHH Compliant</p>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#end-of-tenancy">End of Tenancy Cleaning</a></li>
+                        <li><a href="services.html#deep-cleaning">Deep Cleaning</a></li>
+                        <li><a href="services.html#office-cleaning">Office Cleaning</a></li>
+                        <li><a href="services.html#home-cleaning">Home Cleaning</a></li>
+                        <li><a href="services.html#post-construction">Post Construction Cleaning</a></li>
+                        <li><a href="rental.html">Rental Services <span style="font-size:0.75em;color:var(--accent-green);font-weight:700;">Soon</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+447495687854">+44 7495 687854</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:lpdmcleaning@gmail.com">lpdmcleaning@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Enfield, London</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Sun: 8:00 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/lpdm_cleaning_services?igsh=Zngyd2xrNWZuODBm&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@lpdmcleaning?_r=1&_t=ZN-948n68hawVS" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 LPD&M Cleaning Solutions Ltd. All Rights Reserved.</p>
+                <div class="developer-credit">
+                    <p>Website designed &amp; developed by <a href="https://your-portfolio-link.com" target="_blank">RegnabTec</a></p>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/447495687854" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
