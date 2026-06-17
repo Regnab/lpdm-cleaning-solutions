@@ -11,8 +11,8 @@
 /* =====================================================================
    1. CONFIGURATION
    ---------------------------------------------------------------------
-   Backend team: change API_QUOTE_ENDPOINT here when wiring to Flask.
-   For local dev against the Flask backend, this can be overridden via
+   Change API_QUOTE_ENDPOINT here if the backend URL ever changes.
+   For local dev against the FastAPI backend, this can be overridden via
    `window.LPDM_CONFIG = { API_QUOTE_ENDPOINT: '/api/v1/quote' }` in a
    small inline script BEFORE this file loads.
    ===================================================================== */
@@ -248,7 +248,7 @@ const Validators = {
    11. QUOTE FORM CONTROLLER
    ---------------------------------------------------------------------
    Auto-binds to any <form data-form="quote"> on the page.
-   Contract with backend (Flask):
+   Contract with backend (FastAPI on AWS Lambda):
 
      POST {API_QUOTE_ENDPOINT}
      Headers: { "Content-Type": "application/json", "Accept": "application/json" }
